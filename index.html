@@ -15,24 +15,29 @@ nav a{color:#fff;text-decoration:none;font-size:13px;transition:color 0.3s;}
 nav a:hover{color:#00d26a;}
 
 .icons{display:flex;gap:12px;align-items:center;}
-.icon-btn{background:none;border:none;color:#fff;cursor:pointer;font-size:18px;transition:color 0.3s;}
+.icon-btn{background:none;border:none;color:#fff;cursor:pointer;font-size:18px;transition:color 0.3s;position:relative;}
 .icon-btn:hover{color:#00d26a;}
 .cart-badge{background:#ff4444;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;position:absolute;top:8px;right:8px;}
 
 /* Hero Banner */
-.hero{background:linear-gradient(135deg,#00d26a 0%,#00a84d 100%);padding:30px 20px;border-radius:15px;margin:15px;display:flex;align-items:center;justify-content:space-between;}
-.hero-content h1{font-size:28px;margin-bottom:10px;}
-.hero-content p{font-size:14px;opacity:0.9;margin-bottom:15px;}
-.hero-btn{background:#fff;color:#00d26a;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;font-weight:bold;font-size:12px;}
-.hero-img{width:120px;height:120px;background:rgba(255,255,255,0.2);border-radius:10px;}
+.hero{background:linear-gradient(135deg,#00d26a 0%,#00a84d 100%);padding:30px 20px;border-radius:15px;margin:15px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;}
+.hero-content{z-index:2;}
+.hero-content h1{font-size:28px;margin-bottom:10px;font-weight:bold;}
+.hero-content p{font-size:14px;opacity:0.95;margin-bottom:15px;}
+.hero-btn{background:#fff;color:#00d26a;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;font-weight:bold;font-size:12px;transition:transform 0.3s;}
+.hero-btn:hover{transform:scale(1.05);}
+.hero-img{width:150px;height:150px;object-fit:cover;border-radius:10px;z-index:1;}
 
 /* Categories */
-.categories-section{padding:20px;margin:10px 0;}
+.categories-section{padding:20px;}
 .section-title{font-size:16px;font-weight:bold;margin-bottom:15px;padding:0 5px;}
 .categories{display:flex;overflow-x:auto;gap:12px;padding:5px;}
-.category-btn{background:#1a472a;border:1px solid #2d5a3d;color:#00d26a;padding:10px 20px;border-radius:20px;cursor:pointer;white-space:nowrap;font-size:12px;transition:all 0.3s;}
-.category-btn:hover{background:#00d26a;color:#1a472a;}
-.category-btn.active{background:#00d26a;color:#1a472a;}
+.category-item{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:all 0.3s;}
+.category-icon{font-size:24px;}
+.category-name{font-size:11px;color:#999;}
+.category-item:hover .category-name{color:#00d26a;}
+
+.view-all-cat{color:#00d26a;font-size:12px;cursor:pointer;margin-top:10px;}
 
 /* Featured Products */
 .featured-section{padding:20px;}
@@ -40,16 +45,16 @@ nav a:hover{color:#00d26a;}
 .view-all{color:#00d26a;text-decoration:none;font-size:12px;cursor:pointer;}
 
 .products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
-.product-card{background:#1a1f26;border-radius:10px;overflow:hidden;cursor:pointer;transition:transform 0.3s;position:relative;}
+.product-card{background:#1a1f26;border-radius:15px;overflow:hidden;cursor:pointer;transition:transform 0.3s;position:relative;}
 .product-card:hover{transform:translateY(-5px);}
 
-.product-img{width:100%;height:140px;background:linear-gradient(135deg,#2d5a3d,#1a472a);display:flex;align-items:center;justify-content:center;font-size:48px;}
+.product-img{width:100%;height:140px;background:linear-gradient(135deg,#2d5a3d,#1a472a);display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;}
 .product-info{padding:12px;}
 .product-name{font-size:12px;font-weight:bold;margin-bottom:5px;}
 .product-desc{font-size:10px;color:#999;margin-bottom:8px;}
 .product-footer{display:flex;justify-content:space-between;align-items:center;}
 .product-price{color:#00d26a;font-weight:bold;font-size:12px;}
-.add-btn{background:#00d26a;color:#1a1f26;border:none;padding:6px 12px;border-radius:15px;cursor:pointer;font-size:11px;font-weight:bold;}
+.add-btn{background:#00d26a;color:#1a472a;border:none;padding:6px 12px;border-radius:15px;cursor:pointer;font-size:11px;font-weight:bold;transition:background 0.3s;}
 .add-btn:hover{background:#00a84d;}
 
 .discount-badge{position:absolute;top:8px;right:8px;background:#ff4444;color:#fff;padding:4px 8px;border-radius:5px;font-size:10px;font-weight:bold;}
@@ -80,34 +85,45 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
   <div class="icons">
     <button class="icon-btn">🔍</button>
     <button class="icon-btn">👤</button>
-    <button class="icon-btn" style="position:relative;">
+    <button class="icon-btn">
       🛒
       <span class="cart-badge">2</span>
     </button>
   </div>
 </header>
 
-<!-- Hero Banner -->
+<!-- Hero Banner with Couple Photo -->
 <div class="hero">
   <div class="hero-content">
     <h1>-30% OFF</h1>
     <p>On selected items</p>
     <button class="hero-btn">Shop Now</button>
   </div>
-  <div class="hero-img">👨‍👩‍👧</div>
+  <img src="shophub png" alt="Couple" class="hero-img">
 </div>
 
 <!-- Categories -->
 <div class="categories-section">
   <div class="section-title">Categories</div>
   <div class="categories">
-    <button class="category-btn active">👕 Clothing</button>
-    <button class="category-btn">👟 Shoes</button>
-    <button class="category-btn">⌚ Watches</button>
-    <button class="category-btn">👜 Bags</button>
-    <button class="category-btn">📱 Electronics</button>
+    <div class="category-item">
+      <div class="category-icon">👕</div>
+      <div class="category-name">Clothing</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">👟</div>
+      <div class="category-name">Shoes</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">⌚</div>
+      <div class="category-name">Watches</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">👜</div>
+      <div class="category-name">Bags</div>
+    </div>
   </div>
-  <a href="#" class="view-all">View all</a>
+  <div class="view-all-cat">View all</div>
 </div>
 
 <!-- Featured Products -->
@@ -118,7 +134,7 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
   </div>
   
   <div class="products-grid">
-    <!-- Product 1 -->
+    <!-- Product 1: Shoes -->
     <div class="product-card">
       <div class="product-img">👟</div>
       <div class="product-info">
@@ -132,9 +148,9 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
       <span class="discount-badge">-20%</span>
     </div>
 
-    <!-- Product 2 -->
+    <!-- Product 2: Bag -->
     <div class="product-card">
-      <div class="product-img">🎒</div>
+      <div class="product-img">👜</div>
       <div class="product-info">
         <div class="product-name">Backpack Bag</div>
         <div class="product-desc">Travel Bag</div>
@@ -146,7 +162,7 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
       <span class="discount-badge">-15%</span>
     </div>
 
-    <!-- Product 3 -->
+    <!-- Product 3: Watch -->
     <div class="product-card">
       <div class="product-img">⌚</div>
       <div class="product-info">
@@ -160,21 +176,7 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
       <span class="discount-badge">-25%</span>
     </div>
 
-    <!-- Product 4 -->
-    <div class="product-card">
-      <div class="product-img">👕</div>
-      <div class="product-info">
-        <div class="product-name">Casual Shirt</div>
-        <div class="product-desc">Cotton Blend</div>
-        <div class="product-footer">
-          <span class="product-price">₹899</span>
-          <button class="add-btn">+ Add</button>
-        </div>
-      </div>
-      <span class="discount-badge">-10%</span>
-    </div>
-
-    <!-- Product 5 -->
+    <!-- Product 4: Jacket -->
     <div class="product-card">
       <div class="product-img">🧥</div>
       <div class="product-info">
@@ -187,20 +189,6 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
       </div>
       <span class="discount-badge">-30%</span>
     </div>
-
-    <!-- Product 6 -->
-    <div class="product-card">
-      <div class="product-img">👜</div>
-      <div class="product-info">
-        <div class="product-name">Leather Bag</div>
-        <div class="product-desc">Designer Bag</div>
-        <div class="product-footer">
-          <span class="product-price">₹2,499</span>
-          <button class="add-btn">+ Add</button>
-        </div>
-      </div>
-      <span class="discount-badge">-18%</span>
-    </div>
   </div>
 </div>
 
@@ -211,14 +199,6 @@ footer{background:#0a0d11;padding:30px 20px;text-align:center;color:#666;font-si
 </footer>
 
 <script>
-// Category filter
-document.querySelectorAll('.category-btn').forEach(btn => {
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-
 // Add to cart
 var cartCount = 2;
 document.querySelectorAll('.add-btn').forEach(btn => {
@@ -236,4 +216,4 @@ document.querySelector('.hero-btn').addEventListener('click', function(){
 </script>
 
 </body>
-  </html>
+        </html>
